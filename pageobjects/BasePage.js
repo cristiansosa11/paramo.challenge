@@ -6,8 +6,7 @@ class BasePage{
 
     constructor(page){        
         this.page=page;
-        this.searchButton = page.locator("[id='btn-search']");
-        this.gameCategoriesButton = page.locator("//span[contains(text(),'Game categories')]");
+        this.searchButton = page.locator("[id='btn-search']");        
         this.providersButton = page.locator("//span[contains(text(),'Providers')]");
         this.gamesButton = page.locator("//span[contains(text(),'Games')]");
         this.sportsbookButton = page.locator("//span[contains(text(),'Sportsbook')]");

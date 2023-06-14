@@ -15,10 +15,12 @@ class HomePage extends BasePage {
         this.userAvatar = page.locator("//div[@class='user-avatar__links']");
         this.rowProfile = page.locator("//div[@class='user-info__profile-name']")
         this.goToProfileButtton = page.locator("//span[contains(text(),'Go to profile')]")
+        this.arrowButton = page.locator('.icon-menu-open');
+        this.gameCategories = page.locator("//span[contains(text(),'Game categories')]");
 
     }  
     // This function redirects to the Register Page
-    async goToRegisterPage() {
+    async  goToRegisterPage() {
         console.log("redirecting to the register page")
         await this.registerButton.click();
         const registerPage = new RegisterPage(this.page);
@@ -42,7 +44,19 @@ class HomePage extends BasePage {
         const myProfilePage = new MyProfilePage(this.page)
         return myProfilePage;
     } 
-    
+    async goToCategoriesPage(){
+        await this.arrowButton.click();
+        await this.gameCategories.click();
+        const gamesPage = new GameCategoriesPage(this.page);
+        return gamesPage;
+
+    }
+
+    async goTo(){
+        await this.page.goto('')
+        
+        await this.page.locator("//button[@class='button button--s2 button--t1 ']").click()   
+    }
 
 }
 
